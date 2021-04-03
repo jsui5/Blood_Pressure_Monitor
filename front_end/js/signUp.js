@@ -4,7 +4,7 @@ document.getElementById("back").addEventListener("click", () => {
 
 document.getElementById("signUpBtn").addEventListener("click", () => {
     let xttp = new XMLHttpRequest();
-    
+
     document.getElementById("signUpBtn").addEventListener("click", async () => {
         xttp.open("POST", "https:littlefatlamb.com/4537/termproject/API/V1/user/signup/", true);
         xttp.setRequestHeader("Content-Type", "application/json");
@@ -18,6 +18,8 @@ document.getElementById("signUpBtn").addEventListener("click", () => {
         xttp.onreadystatechange = () => {
             if (this.readyState === 4 && this.status === 202) {
                 console.log(xttp.responseText);
+                //localStorage.setItem("username", data.username);
+                window.location.href = "detail.html";
             }
         }
     })
