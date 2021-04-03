@@ -2,14 +2,18 @@ document.getElementById("back").addEventListener("click", () => {
     window.location.href = "index.html";
 });
 
-document.getElementById("signUpBtn").addEventListener("click", () => {
+document.getElementById("logIn").addEventListener("click", () => {
     let xttp = new XMLHttpRequest();
-    const url = "";
-    xttp.open("POST",url,true);
+    const url = "https://littlefatlamb.com/4537/termproject/API/V1/admin";
+    xttp.open("GET",url,true);
+    console.log("SENDING");
     xttp.send();
 
     xttp.onreadystatechange = () => {
-        if (this.readyState === 4 && this.status) {
+        console.log("processing");
+        console.log(xttp.readyState);
+        if (xttp.readyState === 4 && xttp.status) {
+            console.log(xttp.responseText);
             showStats(xttp.responseText);
         }
     }
@@ -21,7 +25,7 @@ showStats = (json) => {
         items.forEach(data => {
             let newRow = document.createElement("TR");
             let text =
-            `<
+            `
                 <td>${data["method"]}</td>
                 <td>${data["endpoint"]}</td>
                 <td>${data["count"]}</td>

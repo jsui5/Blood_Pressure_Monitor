@@ -8,7 +8,7 @@ document.getElementById("signUpBtn").addEventListener("click", async () => {
     xttp.open("POST", "https://littlefatlamb.com/4537/termproject/API/V1/user/signup", true);
     xttp.setRequestHeader("Content-Type", "application/json");
     let data = getInfo();
-    if (data.username === "" || data.username === "") {
+    if (data.username === '' || data.username === '') {
         window.alert("400: invalid password or username!");
     } else {
         console.log("SENDING");
@@ -18,7 +18,8 @@ document.getElementById("signUpBtn").addEventListener("click", async () => {
 
     xttp.onreadystatechange = () => {
         console.log("processing");
-        if (this.readyState === 4 && this.status === 202) {
+        console.log(xttp.readyState);
+        if (xttp.readyState === 4 && xttp.status === 202) {
             console.log(xttp.responseText);
             //localStorage.setItem("username", data.username);
             window.location.href = "detail.html";
@@ -31,6 +32,6 @@ getInfo = () => {
     let username = document.getElementById("user");
     let password = document.getElementById("pw");
 
-    return {"username": username.value, "password": password.value};
+    return {'username': username.value, 'password': password.value};
 };
 
