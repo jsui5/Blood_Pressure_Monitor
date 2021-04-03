@@ -1,8 +1,8 @@
-document.getElementById("doctor").addEventListener("click", () => {
+document.getElementById("bp").addEventListener("click", () => {
     window.location.href = "bloodPressure.html"
 });
 
-document.getElementById("patient").addEventListener("click",  () => {
+document.getElementById("advices").addEventListener("click",  () => {
     window.location.href = "advice.html"
 });
 
