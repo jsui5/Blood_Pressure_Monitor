@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Admin API</h1>
-<div>
+<div id="formDiv">
     <form id="logInForm">
         <label for="user">User:</label><br>
         <input type="text" id="user" name="user"><br>
@@ -15,6 +15,13 @@
     </form>
 </div>
 <br>
+<table id="statsTable">
+    <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Requests</th>
+    </tr>
+</table>
 <div>
     <input type="button" value="Log In" id="signUpBtn">
 </div>
