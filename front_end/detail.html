@@ -12,6 +12,8 @@
             <th>Time</th>
             <th>Systolic</th>
             <th>Diastolic</th>
+            <th>New Systolic</th>
+            <th>New Diastolic</th>
         </tr>
     </table>
 </div>
@@ -20,11 +22,31 @@
         <label for="sys">Systolic:</label><br>
         <input type="text" id="sys" name="sys"><br>
         <label for="dia">Diastolic:</label><br>
-        <input type="password" id="dia" name="dia"><br>
+        <input type="text" id="dia" name="dia"><br><br>
         <input type="button" id="submit" value = "submit">
     </form><br>
+    <input type="button" value="DELETE Account" id="deleteAccount">
+
 </div>
-<input type="button" value="DELETE Account" id="deleteAccount">
+<hr>
+<div>
+    <form id="changePass">
+        <label for="newPass">Enter new password:</label><br>
+        <input type="text" id="newPass" name="newPass"><br><br>
+        <input type="button" id="submitNewPass" value = "Change password">
+    </form><br>
+</div>
+<div>
+    <form id="advice">
+        <label for="newPass">Enter advice:</label><br>
+        <textarea id="adviceText" name="newPass" rows="4" cols="50">
+        </textarea><br><br>
+        <input type="button" id="submitAdvice" value = "Submit Advice">
+    </form><br>
+</div>
+<hr>
+<input type="button" id="logout" value="LOGOUT"><br> <br>
+<input type="button" id="advicePage" value="Go to Advice Page">
 </body>
 </html>
 <script src="js/detail.js"></script>

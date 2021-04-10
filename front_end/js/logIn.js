@@ -23,6 +23,7 @@ document.getElementById("login").addEventListener("click", () => {
         if (xttp.readyState === 4 && xttp.status === 202) {
             let userID = xttp.responseText;
             localStorage.setItem("userID", userID);
+            localStorage.setItem("username", data.username);
             window.location.href = "detail.html";
             console.log(xttp.responseText);
         } else if (xttp.readyState === 4 && xttp.status === 400) {

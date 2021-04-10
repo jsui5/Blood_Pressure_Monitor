@@ -1,5 +1,12 @@
 document.getElementById("bp").addEventListener("click", () => {
-    window.location.href = "bloodPressure.html"
+
+
+    if (localStorage.getItem("userID") !== null) {
+        window.location.href = "detail.html"
+    } else {
+        window.location.href = "bloodPressure.html"
+    }
+
 });
 
 document.getElementById("advices").addEventListener("click",  () => {
