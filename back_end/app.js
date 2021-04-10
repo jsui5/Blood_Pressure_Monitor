@@ -19,7 +19,7 @@ connection.connect((err) => {
 });
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "https://jmajam.com");
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, Content-Length, X-Requested-With")
     next();
@@ -37,6 +37,8 @@ increment = (id) => {
     });
 };
 
+
+
 app.post(endPointRoot + "/user/signup", (req, res) => {
     connection.query(`INSERT INTO users (user, password) VALUES ("${req.body.username}", "${req.body.password}")`,
         (err, result) => {
@@ -48,6 +50,18 @@ app.post(endPointRoot + "/user/signup", (req, res) => {
         console.log(result);
     });
 });
+
+// app.post(endPointRoot + "/user/login", (req, res) => {
+//     connection.query(`SELECT id FROM users WHERE `,
+//         (err, result) => {
+//         if (err) {
+//             throw err;
+//         }
+//         increment(0);
+//         res.status(202).send("Blood Pressure Stored");
+//         console.log(result);
+//     });
+// });
 
 app.delete(endPointRoot + "/user", (req, res) => {
     connection.query(`DELETE FROM users WHERE user="${req.body.username}"`,
