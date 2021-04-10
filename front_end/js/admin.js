@@ -3,6 +3,14 @@ document.getElementById("back").addEventListener("click", () => {
 });
 
 document.getElementById("logIn").addEventListener("click", () => {
+    reqStats();
+});
+
+window.onload = () => {
+    reqStats();
+};
+
+reqStats = () => {
     let xttp = new XMLHttpRequest();
     const url = "https://littlefatlamb.com/4537/termproject/API/V1/admin";
     xttp.open("GET",url,true);
@@ -17,7 +25,7 @@ document.getElementById("logIn").addEventListener("click", () => {
             showStats(xttp.responseText);
         }
     }
-});
+};
 
 showStats = (json) => {
     let items = JSON.parse(json);

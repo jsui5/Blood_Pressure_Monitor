@@ -20,9 +20,13 @@ document.getElementById("signUpBtn").addEventListener("click", async () => {
         console.log("processing");
         console.log(xttp.readyState);
         if (xttp.readyState === 4 && xttp.status === 202) {
-            console.log(xttp.responseText);
             //localStorage.setItem("username", data.username);
-            window.location.href = "detail.html";
+            //window.location.href = "detail.html";
+            console.log(xttp.responseText);
+        } else if (xttp.readyState === 4 && xttp.status === 400) {
+            console.log("made NOT");
+            console.log(xttp.responseText);
+            alert("Username already exists!!");
         }
     }
 });

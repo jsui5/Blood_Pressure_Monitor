@@ -19,10 +19,53 @@ document.getElementById("deleteAccount").addEventListener("click", async () => {
     }
 });
 
+document.getElementById("")
+
+window.onload = () => {
+    reqStats();
+};
+
 
 getInfo = () => {
     let username = document.getElementById("user");
     let password = document.getElementById("pw");
 
     return {"username": username.value, "password": password.value};
+};
+
+showStats = (json) => {
+    let items = JSON.parse(json);
+    if (items.length !== 0) {
+        items.forEach(data => {
+            let newRow = document.createElement("TR");
+            let text =
+                `
+                <td>${data["date"]}</td>
+                <td>${data["sys"]}</td>
+                <td>${data["dia"]}</td>
+            `;
+            newRow.innerHTML = text;
+
+            let table = document.getElementById("statsTableMeasure");
+            table.appendChild(newRow);
+        })
+    }
+};
+
+reqStats = () => {
+    let xttp = new XMLHttpRequest();
+    const url = "https://littlefatlamb.com/4537/termproject/API/V1/bloodpressure/view";
+    xttp.open("GET",url,true);
+    console.log("SENDING");
+    let uid = localStorage.getItem("userID");
+    xttp.send(JSON.stringify({'uid': uid}));
+
+    xttp.onreadystatechange = () => {
+        console.log("processing");
+        console.log(xttp.readyState);
+        if (xttp.readyState === 4 && xttp.status === 202) {
+            console.log(xttp.responseText);
+            showStats(xttp.responseText);
+        }
+    }
 };
