@@ -2,9 +2,6 @@ document.getElementById("back").addEventListener("click", () => {
     window.location.href = "index.html";
 });
 
-document.getElementById("logIn").addEventListener("click", () => {
-    reqStats();
-});
 
 reqStats = () => {
     let xttp = new XMLHttpRequest();
@@ -75,7 +72,7 @@ document.getElementById("adminLogin").addEventListener("click", () => {
             }
         } else if (xttp.readyState === 4 && xttp.status === 401) {
             alert("Not authorized!");
-        } else {
+        } else if (xttp.readyState === 4) {
             alert("Server error 504");
         }
     }
